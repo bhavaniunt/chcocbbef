@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chocolate Store</title>
+    <style>
+        body {
+            background-color: #ffcccc;
+            font-family: Arial, sans-serif;
+        }
+      .header {
+            background-color: #cc3300;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+      .nav {
+            background-color: #ff9966;
+            overflow: hidden;
+        }
+      .nav a {
+            float: left;
+            color: #000000;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+      .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -16px;
+        }
+      .col-50 {
+            flex: 50%;
+            padding: 0 16px;
+        }
+      .container {
+            background-color: #f2f2f2;
+            padding: 5px 20px 15px 20px;
+            border: 1px solid lightgrey;
+            border-radius: 3px;
+        }
+      .footer {
+            background-color: #cc3300;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+      .btn {
+            background-color: #cc3300;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Our Chocolate Store</h1>
+    </div>
+
+    <div class="nav">
+        <a href="#">Home</a>
+        <a href="#">Cart</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="row">
+        <div class="col-50">
+            <div class="container">
+                <h2>Delicious Chocolates</h2>
+                <p>Price: $10</p>
+                <button class="btn" onclick="addToCart()">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Copyright © 2022</p>
+    </div>
+
+    <script>
+        var cart = [];
+
+        function addToCart() {
+            var product = {
+                name: 'Chocolate',
+                price: 10,
+                quantity: 1
+            };
+            cart.push(product);
+            alert('Product added to cart. Total items: ' + cart.length + ', Total price: $' + getTotalPrice());
+        }
+
+        function getTotalPrice() {
+            var total = 0;
+            for (var i = 0; i < cart.length; i++) {
+                total += cart[i].price * cart[i].quantity;
+            }
+            return total;
+        }
+    </script>
+</body>
+</html>
